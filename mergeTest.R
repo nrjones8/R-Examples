@@ -1,5 +1,8 @@
 # Nick Jones -- demonstrates the difference in merging two data frames (with some overlap in row names, but not all)
 # when using by = 'row.names' vs. a column storing 'Name'
+
+
+# Added in this one line
 slowMerging <- function(totalRows = 8000, subsetRows = 7000)
 {
   getRandStr <- function(length = 8)
