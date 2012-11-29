@@ -26,7 +26,8 @@ slowMerging <- function(totalRows = 8000, subsetRows = 7000)
 
   # Merge by row names, keep everything -- takes forever!
   # Takes same amount of time for matrix vs. data frame
-  #merge.mat <- system.time(mergedMat <- merge(mat1, mat2, by = 'row.names', all = T))
+  merge.mat <- system.time(mergedMat <- merge(mat1, mat2, by = 'row.names', all = T))
+  
   df1 <- data.frame(mat1)
   df2 <- data.frame(mat2)
   merge.df <- system.time(mergedDF <- merge(df1, df2, by = 'row.names', all = T))
@@ -37,8 +38,10 @@ slowMerging <- function(totalRows = 8000, subsetRows = 7000)
   df2[, 'Name'] <- rownames(df2)
 
   merge.df.byCol <- system.time(mergedDF.byCol <- merge(df1, df2, by = 'Name', all = T))
-  print('Using row.names:')
+  print('Using row.names (data frame):')
   print(merge.df)
+  print('Using row.names (matrix):')
+  print(merge.mat)
   print('Using column "Name"')
   print(merge.df.byCol)
 }
