@@ -5,15 +5,13 @@
 # Added in this one line
 slowMerging <- function(totalRows = 8000, subsetRows = 7000)
 {
+  
   getRandStr <- function(length = 8)
   {
     return(paste(sample(c(0:9, letters, LETTERS),
                       length, replace=TRUE), collapse=""))
   }
   # Create two random matrices of equal size
-  totalRows <- 8000
-  # Number of rows to keep in subset
-  subsetRows <- 7000
   mat1 <- matrix(rnorm(totalRows*2), ncol = 2)
   mat2 <- matrix(rnorm(totalRows*2), ncol = 2)
   # Give two matricies same rownames
